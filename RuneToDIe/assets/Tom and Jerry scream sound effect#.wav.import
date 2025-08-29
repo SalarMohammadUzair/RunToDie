@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dllgnaup8ak4a"
+path="res://.godot/imported/Tom and Jerry scream sound effect#.wav-5a741f060621998532f619928ba8b681.sample"
+
+[deps]
+
+source_file="res://assets/Tom and Jerry scream sound effect#.wav"
+dest_files=["res://.godot/imported/Tom and Jerry scream sound effect#.wav-5a741f060621998532f619928ba8b681.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

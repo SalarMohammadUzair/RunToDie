@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=4 uid="uid://woqlvcgriew5"]
+
+[ext_resource type="PackedScene" uid="uid://bl4jmgytyyref" path="res://scenes/node_2d.tscn" id="1_lodmc"]
+[ext_resource type="Texture2D" uid="uid://063tueesjdd8" path="res://assets/Sprite-0001.png" id="2_tbsvi"]
+[ext_resource type="AudioStream" uid="uid://dllgnaup8ak4a" path="res://assets/Tom and Jerry scream sound effect#.wav" id="3_yir5b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yir5b"]
+texture = ExtResource("2_tbsvi")
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:7/0 = 0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:8/0 = 0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:8/0 = 0
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:8/0 = 0
+2:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0 = 0
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_3vd7j"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_yir5b")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yir5b"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAABYAAAABAAgAAAABABYAAAABAAgAAAACABYAAAABAAgAAAADABYAAAABAAgAAAAEABYAAAABAAgAAAAFABYAAAABAAgAAAAGABYAAAABAAgAAAAHABYAAAABAAgAAAAIABYAAAABAAgAAAAJABYAAAABAAgAAAAKABYAAAABAAgAAAALABYAAAABAAgAAAAMABYAAAABAAgAAAANABYAAAABAAgAAAAOABYAAAABAAgAAAAPABYAAAABAAgAAAAQABYAAAABAAgAAAARABYAAAABAAgAAAASABYAAAABAAgAAAATABYAAAABAAgAAAAUABYAAAABAAgAAAAVABYAAAABAAgAAAAWABYAAAABAAgAAAAXABYAAAABAAgAAAAYABYAAAABAAgAAAAZABYAAAABAAgAAAAaABYAAAABAAgAAAAbABYAAAABAAgAAAAcABYAAAABAAgAAAAdABYAAAABAAgAAAAeABYAAAABAAgAAAAfABYAAAABAAgAAAAgABYAAAABAAgAAAAhABYAAAABAAgAAAAiABYAAAABAAgAAAAjABYAAAABAAgAAAAkABYAAAABAAgAAAAlABYAAAABAAgAAAAmABYAAAABAAgAAAAnABYAAAABAAgAAAAnABUAAAABAAgAAAAmABUAAAABAAgAAAAlABUAAAABAAgAAAAkABUAAAABAAgAAAAjABUAAAABAAgAAAAiABUAAAABAAgAAAAhABUAAAABAAgAAAAgABUAAAABAAgAAAAfABUAAAABAAgAAAAeABUAAAABAAgAAAAdABUAAAABAAgAAAAcABUAAAABAAgAAAAbABUAAAABAAgAAAAaABUAAAABAAgAAAAZABUAAAABAAgAAAAYABUAAAABAAgAAAAXABUAAAABAAgAAAAWABUAAAABAAgAAAAVABUAAAABAAgAAAAUABUAAAABAAgAAAATABUAAAABAAgAAAASABUAAAABAAgAAAARABUAAAABAAgAAAAQABUAAAABAAgAAAAPABUAAAABAAgAAAAOABUAAAABAAgAAAANABUAAAABAAgAAAAMABUAAAABAAgAAAALABUAAAABAAgAAAAKABUAAAABAAgAAAAJABUAAAABAAgAAAAIABUAAAABAAgAAAAHABUAAAABAAgAAAAGABUAAAABAAgAAAAFABUAAAABAAgAAAAEABUAAAABAAgAAAADABUAAAABAAgAAAACABUAAAABAAgAAAABABUAAAABAAgAAAAAABUAAAABAAgAAAA=")
+tile_set = SubResource("TileSet_3vd7j")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_lodmc")]
+position = Vector2(83, 302)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="right" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(649, 325)
+shape = SubResource("RectangleShape2D_yir5b")
+
+[node name="left" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-10, 325)
+shape = SubResource("RectangleShape2D_yir5b")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yir5b")
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

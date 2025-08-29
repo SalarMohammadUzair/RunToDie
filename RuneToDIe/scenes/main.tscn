@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1vjhar3qyt1m"]
+
+[ext_resource type="Script" uid="uid://hed56r3vj043" path="res://scenes/world_environment.gd" id="1_o5qli"]
+
+[sub_resource type="Environment" id="Environment_rf3rd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rf3rd")
+script = ExtResource("1_o5qli")
+
+[node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
+position = Vector2(-510, -20)
